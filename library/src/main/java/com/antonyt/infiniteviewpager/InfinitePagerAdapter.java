@@ -13,7 +13,7 @@ import android.view.ViewGroup;
 public class InfinitePagerAdapter extends PagerAdapter {
 
     private static final String TAG = "InfinitePagerAdapter";
-    private static final boolean DEBUG = true;
+    private static final boolean DEBUG = false;
 
     private PagerAdapter adapter;
 
@@ -23,6 +23,9 @@ public class InfinitePagerAdapter extends PagerAdapter {
 
     @Override
     public int getCount() {
+        if (getRealCount() == 0) {
+            return 0;
+        }
         // warning: scrolling to very high values (1,000,000+) results in
         // strange drawing behaviour
         return Integer.MAX_VALUE;
